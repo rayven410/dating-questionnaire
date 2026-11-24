@@ -1,46 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color" content="#fff0f3">
+
     <title>Getting to Know You</title>
 
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #fff0f3;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+        * {
             margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            min-height: 100%;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(
+                135deg,
+                #fff0f3,
+                #ffe0e9,
+                #ffd6e0
+            );
+
+            min-height: 100vh;
+            min-height: 100dvh;
+
+            display: grid;
+            place-items: center;
+
+            padding: clamp(12px, 4vw, 40px);
         }
 
         .container {
             background: white;
-            padding: 30px;
-            border-radius: 15px;
-            width: 90%;
-            max-width: 500px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+
+            width: 100%;
+            max-width: 550px;
+
+            padding: clamp(24px, 6vw, 50px);
+
+            border-radius: clamp(16px, 4vw, 25px);
+
+            text-align: center;
+
+            box-shadow:
+                0 10px 40px rgba(231, 84, 128, 0.15);
+
+            animation: fadeIn 0.8s ease;
+
+            overflow-wrap: break-word;
+        }
+
+        .heart {
+            font-size: clamp(38px, 10vw, 55px);
+            margin-bottom: 15px;
+
+            animation: heartbeat 1.5s infinite;
         }
 
         h1 {
             color: #e75480;
-            text-align: center;
+
+            font-size: clamp(24px, 6vw, 32px);
+
+            margin-bottom: 15px;
+            line-height: 1.25;
         }
 
-        input, textarea {
-            width: 95%;
-            padding: 10px;
-            margin: 10px 0;
+        .subtitle {
+            color: #777;
+
+            font-size: clamp(14px, 3.5vw, 16px);
+
+            line-height: 1.7;
+            margin-bottom: 30px;
         }
+
+        .divider {
+            width: 60px;
+            height: 4px;
+
+            background: #e75480;
+
+            margin: 0 auto 30px;
+
+            border-radius: 10px;
+        }
+
+        .description {
+            color: #555;
+
+            font-size: clamp(14px, 3.5vw, 15px);
+
+            line-height: 1.8;
+
+            margin-bottom: 35px;
+        }
+
+        .form-button {
+            display: inline-flex;
+
+            justify-content: center;
+            align-items: center;
+
+            width: fit-content;
+            max-width: 100%;
+
+            background: #e75480;
+            color: white;
+
+            padding: 15px clamp(20px, 6vw, 35px);
+
+            border-radius: 30px;
+
+            text-decoration: none;
+
+            font-size: clamp(14px, 3.5vw, 16px);
+            font-weight: 600;
+
+            transition: all 0.3s ease;
+
+            box-shadow:
+                0 5px 15px rgba(231, 84, 128, 0.25);
+        }
+
+        .form-button:hover {
+            background: #d6336c;
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 20px rgba(231, 84, 128, 0.35);
+        }
+
+        .note {
+            margin-top: 25px;
+
+            color: #aaa;
+
+            font-size: 12px;
+            line-height: 1.5;
+        }
+
+        footer {
+            margin-top: 35px;
+
+            color: #bbb;
+            font-size: 12px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.15);
+            }
+        }
+
+        /* Small mobile screens */
+        @media (max-width: 360px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 24px 18px;
+            }
+
+            .form-button {
+                width: 100%;
+            }
+        }
+
+        /* Landscape mobile screens */
+        @media (max-height: 500px) and (orientation: landscape) {
+            body {
+                place-items: start center;
+            }
+
+            .container {
+                margin: 10px auto;
+            }
+
+            .heart {
+                margin-bottom: 8px;
+            }
+
+            .subtitle {
+                margin-bottom: 15px;
+            }
+
+            .divider {
+                margin-bottom: 15px;
+            }
+
+            .description {
+                margin-bottom: 20px;
+            }
+
+            footer {
+                margin-top: 20px;
+            }
+        }
+
+        /* Accessibility: reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *,
+            *::before,
+            *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+
     </style>
 </head>
 
 <body>
 
-<div class="container">
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdQ_u9atw2VT26PN8g0kBuef_OhJ6Ga-9xF8g34H5WOkOokCQ/viewform?embedded=true" width="500" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></div>
+    <main class="container">
+
+        <div class="heart">♥</div>
+
+        <h1>Getting to Know You</h1>
+
+        <p class="subtitle">
+            A little questionnaire, just for you.
+        </p>
+
+        <div class="divider"></div>
+
+        <p class="description">
+            Everyone has a story, and I'd like to hear yours.
+
+            Take a little time to answer these questions.
+            There are no right or wrong answers.
+
+            Be yourself, have fun, and let's see
+            where this goes.
+        </p>
+
+        <a
+            href="YOUR_GOOGLE_FORM_URL"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="form-button">
+
+            Start Questionnaire ♥
+
+        </a>
+
+        <p class="note">
+            Takes approximately 5–10 minutes.
+        </p>
+
+        <footer>
+            Made with ♥
+        </footer>
+
+    </main>
+
 </body>
+
 </html>
