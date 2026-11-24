@@ -30,19 +30,6 @@
             text-align: center;
         }
 
-        button {
-            background: #e75480;
-            color: white;
-            border: none;
-            padding: 12px 20px;
-            border-radius: 8px;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #d6336c;
-        }
-
         input, textarea {
             width: 95%;
             padding: 10px;
@@ -55,15 +42,5 @@
 
 <div class="container">
 <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdQ_u9atw2VT26PN8g0kBuef_OhJ6Ga-9xF8g34H5WOkOokCQ/viewform?embedded=true" width="500" height="500" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></div>
-
-<script>
-    document.getElementById("questionnaire")
-        .addEventListener("submit", function(event) {
-            event.preventDefault();
-            document.getElementById("result").textContent =
-                "Thank you for answering! ❤️";
-        });
-</script>
-
 </body>
 </html>
